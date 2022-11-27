@@ -1,0 +1,198 @@
+:root {
+	/*	### Primary*/
+
+	--bright-blue: hsl(220, 98%, 61%);
+	--check-background: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+	/*	### Neutral*/
+
+	/*	### Light Theme*/
+
+	--very-light-gray: hsl(0, 0%, 98%);
+	--very-light-grayish-blue: hsl(236, 33%, 92%);
+	--light-grayish-blue: hsl(233, 11%, 84%);
+	--dark-grayish-blue: hsl(236, 9%, 61%);
+	--very-dark-grayish-blue: hsl(235, 19%, 35%);
+
+	/*	Dark Theme*/
+
+	--very-dark-blue: hsl(235, 21%, 11%);
+	--very-dark-desaturated-blue: hsl(235, 24%, 19%);
+	--light-grayish-blue: hsl(234, 39%, 85%);
+	--light-grayish-blue-hover: hsl(236, 33%, 92%);
+	--dark-grayish-blue: hsl(234, 11%, 52%);
+	--very-dark-grayish-blue: hsl(233, 14%, 35%);
+	--very-dark-grayish-blue: hsl(237, 14%, 26%);
+}
+* {
+	box-sizing: border-box;
+	font-family: 'Josefin Sans';
+}
+html, button {
+	font-size: 18px;
+}
+@media only screen and (max-width:600px) {
+	html, button {
+		font-size: 12px;
+	}
+}
+body {
+	margin: 0 auto;
+	background: var(--very-light-gray);
+}
+header {
+	background: url('./images/bg-desktop-light.jpg');
+	background-size: cover;
+	padding: 1.5rem;
+}
+input:focus {
+	outline: none;
+}
+button > img {
+	display: block;
+	vertical-align: middle;
+}
+.todo-alignment {
+	display: flex;
+	align-items: center;
+	max-width: 724px;
+	margin: 0 auto;
+}
+.todo-header {
+	margin-top: 3.75rem;
+	justify-content: space-between;
+}
+.todo-header > h1 {
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 0.75rem;
+	color: white;
+	margin: 0;
+}
+.todo-item {
+	padding: 1rem;
+	background: white;
+	border-bottom: 1px solid var(--light-grayish-blue);
+}
+.todo-item:first-child {
+	border-radius: 0.25rem 0.25rem 0 0;
+}
+.todo-input {
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	border-radius: 0.25rem;
+}
+.todo-item > input[type="checkbox"] {
+	margin-right: 1rem;
+}
+.todo-item > input[type="text"] {
+	border: none;
+	font-size: 1rem;
+	width: 100%;
+	color: var(--very-dark-grayish-blue);
+}
+.todo-item > button {
+	background: transparent;
+	border: none;
+	padding: 0;
+	margin-right: 1rem;
+}
+.todo-item > button > img {
+	height: 1rem;
+}
+button.todo-theme {
+	background: transparent;
+	border: none;
+}
+.page-content {
+	margin-top: -1.5rem;
+	padding: 0 1.5rem;
+}
+.todo {
+}
+.todo-list {
+	display: flex;
+	flex-direction: column;
+}
+.todo-list > .todo-item {
+	display: flex;
+	width: 100%;
+}
+.todo-item.todo-actions {
+	border: none;
+	border-radius: 0 0 0.25rem 0.25rem;
+}
+.todo-actions {
+	justify-content: space-between;
+	font-size: 0.75rem;
+	color: var(--dark-grayish-blue);
+}
+.todo-actions p {
+	font-size: 0.75rem;
+	margin: 0;
+}
+.todo-actions button {
+	background: transparent;
+	border: none;
+	font-size: 0.85rem;
+	font-weight: 700;
+	color: var(--dark-grayish-blue);
+}
+.todo-actions button:hover {
+	cursor: pointer;
+	color: var(--very-dark-grayish-blue);
+}
+@media only screen and (max-width:600px) {
+	.todo-actions {
+		padding: 1.75rem 1.5rem;
+	}
+	.todo-actions p, .todo-actions button {
+		font-size: 1rem;
+	}
+	.todo-actions .filters {
+		display: none;
+	}
+}
+.todo-actions .btn-filter-all {
+	color: var(--bright-blue);
+}
+.todo-actions .btn-clear {
+	font-weight: 400;
+	color: var(--dark-grayish-blue);
+}
+.todo-list, .todo-actions, .page-content > .filters {
+	box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.05), 0 6px 50px 0 rgba(0, 0, 0, 0.05);
+}
+.todo-information {
+	font-size: 0.75rem;
+	color: var(--dark-grayish-blue);
+	justify-content: center;
+	margin: 3rem auto;
+}
+.page-content > .filters {
+	display: none;
+}
+@media only screen and (max-width:600px) {
+	.todo-information {
+		font-size: 1.25rem;
+	}
+	.page-content > .filters {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 1.5rem;
+		background: white;
+		margin-top: 1.5rem;
+		border-radius: 0.25rem;
+		column-gap: 1rem;
+	}
+	.page-content > .filters > button {
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: var(--dark-grayish-blue);
+		background: transparent;
+		border: none;
+	}
+}
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
