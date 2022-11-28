@@ -4,7 +4,7 @@ const todoInput = document.getElementById('js-add-todo-input');
 
 todoInput.addEventListener('keypress', (event) => {
 	console.log(event.which);
-	if(event.key === 'Enter') {
+	if(event.key === 'Enter' || event.which == 10) {
 		addTodo(event.target.value);
 		todoInput.value = '';
 	}
