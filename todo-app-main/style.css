@@ -99,7 +99,11 @@ button > img {
 	border: none;
     background: url('./images/icon-check.svg') no-repeat center, var(--check-background);
 }
-
+.todo-item > input[type="checkbox"]:checked + input[type="text"] {
+	color: var(--light-grayish-blue);
+	text-decoration: line-through;
+	pointer-events: none;
+}
 @media only screen and (max-width:700px) {
 	.todo-item > input[type="checkbox"] {	
 		width: 1.75rem;
@@ -121,17 +125,15 @@ button > img {
 		display: block;
 	}
 }
+.todo-input > input[type="checkbox"] {
+	pointer-events: none;
+}
 .todo-item > input[type="text"] {
 	border: none;
 	padding-top: 0.2rem;
 	font-size: 1rem;
 	width: 100%;
 	color: var(--very-dark-grayish-blue);
-}
-.todo-item--completed > input[type="text"] {
-	color: var(--light-grayish-blue);
-	text-decoration: line-through;
-	pointer-events: none;
 }
 .todo-item > button {
 	background: transparent;
