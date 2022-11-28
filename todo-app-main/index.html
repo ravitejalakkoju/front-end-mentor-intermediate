@@ -1,63 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" type="text/css" href="./style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700">
-  
-  <title>Todo app</title>
-</head>
-<body>
-  <header>
-    <div class="todo-header todo-alignment">
-      <h1>Todo</h1>
-      <button class="todo-theme" id="js-theme-toggle">
-        <img src="" id="js-theme-icon">
-      </button>
-    </div>
-    <div class="todo-item todo-input todo-alignment">
-      <input type="checkbox">
-      <input type="text" placeholder="Create a new todo..." id="js-add-todo-input">
-    </div>
-  </header>
-  <main class="page-content">
-    <div class="todo-list todo-alignment" id="js-todo-list">
-    </div>
-    <div class="todo-item todo-actions todo-alignment">
-      <p><span id="js-todo-count">6</span> items left</p>
-      <div class="filters">
-        <button class="active">All</button>
-        <button>Active</button>
-        <button >Completed</button>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700">
+    
+    <title>Todo app</title>
+  </head>
+  <body>
+    <header>
+      <div class="todo-header todo-alignment">
+        <h1>Todo</h1>
+        <button class="todo-theme" id="js-theme-toggle">
+          <img src="" id="js-theme-icon">
+        </button>
       </div>
-      <button class="btn-clear" onclick="clearCompletedTodos()">
-        Clear Completed
-      </button>
-    </div>
-    <div class="filters">
-      <button class="btn-filter-all active">All</button>
-      <button class="btn-filter-active">Active</button>
-      <button class="btn-filter-completed">Completed</button>
-    </div>
-    <div class="todo-information todo-alignment">
-      Drag and drop to reorder list
-    </div>
-  </main>
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="https://github.com/ravitejalakkoju/front-end-mentor-intermediate/tree/main/todo-app-main" target="_blank">L N S S Ravi Teja</a>.
-  </footer>
-  <script type="text/javascript" src="./theme-script.js"></script>
-  <script type="text/javascript" src="./render-script.js"></script>
-  <script type="text/javascript" src="./main.js"></script>
-</body>
-</html>
-
-<!-- <div class="todo-item">
+      <div class="todo-item todo-input todo-alignment">
         <input type="checkbox">
-        <input type="text" value="Read for 1hour">
-        <button><img src="./images/icon-cross.svg"></button>
-      </div>  -->
+        <input type="text" placeholder="Create a new todo..." id="js-add-todo-input">
+      </div>
+    </header>
+    <main class="page-content">
+      <div class="todo-list todo-alignment" id="js-todo-list">
+      </div>
+      <div class="todo-item todo-actions todo-alignment">
+        <p><span id="js-todo-count">6</span> items left</p>
+        <div class="filters">
+          <button onclick="filterAllTodos()" class="js-filter-all">All</button>
+          <button onclick="filterActiveTodos()" class="js-filter-active">Active</button>
+          <button onclick="filterCompletedTodos()" class="js-filter-completed">Completed</button>
+        </div>
+        <button class="btn-clear" onclick="clearCompletedTodos()">
+          Clear Completed
+        </button>
+      </div>
+      <div class="filters">
+        <button onclick="filterAllTodos()" class="js-filter-all">All</button>
+        <button onclick="filterActiveTodos()" class="js-filter-active">Active</button>
+        <button onclick="filterCompletedTodos()" class="js-filter-completed">Completed</button>
+      </div>
+      <div class="todo-information todo-alignment">
+        Drag and drop to reorder list
+      </div>
+    </main>
+    <footer class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://github.com/ravitejalakkoju/front-end-mentor-intermediate/tree/main/todo-app-main" target="_blank">L N S S Ravi Teja</a>.
+    </footer>
+    <script type="text/javascript" src="./theme-script.js"></script>
+    <script type="text/javascript" src="./render-script.js"></script>
+    <script type="text/javascript" src="./main.js"></script>
+  </body>
+</html>

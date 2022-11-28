@@ -21,7 +21,6 @@ function loadDarkTheme() {
 
 const themeToggle = document.getElementById("js-theme-toggle");
 const currentTheme = localStorage.getItem("theme");
-console.log(currentTheme);
 
 if(!currentTheme) loadSystemTheme();
 else if (currentTheme == "dark") loadDarkTheme();

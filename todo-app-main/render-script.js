@@ -24,12 +24,11 @@ Object.defineProperty(todoList, "push", {
     writable: true, 
     value: function (...args)
     {
-    	console.log(args);
         let result = Array.prototype.push.apply(this, args); 
 
-        loadData();
+       filter(); 
 
-        return result; // Original push() implementation
+        return result; 
     }
 });
 
@@ -40,7 +39,7 @@ Object.defineProperty(Array.prototype, "remove", {
         indexes.forEach(idx => {
         	this.splice(idx, 1);
         });
-        loadData(); 
+        filter(); 
     }
 });
 
@@ -52,16 +51,21 @@ function getFilteredTodos(isCompleted) {
 	return getTodos().filter(isCompleted != null ? todo => todo.isCompleted == isCompleted : todo => true);
 }
 
-function loadData(isCompleted = null) {
+function loadTodos(isCompleted = null) {
 	const todoList = document.getElementById('js-todo-list');
 	todoList.innerHTML = '';
 	getFilteredTodos(isCompleted).forEach(todo => {
 		const todoItem = 
 		`<div class="todo-item">
-	        <input type="checkbox" id="js-checkbox-${todo.id}" ${todo.isCompleted ? 'checked' : ''}>
+	        <input type="checkbox" id="js-checkbox-${todo.id}" ${todo.isCompleted ? 'checked' : ''} value="${todo.id}" onclick="completeTodo(event)">
 	        <input type="text" value="${todo.task}">
 	        <button onclick="removeTodo(${todo.id})"><img src="./images/icon-cross.svg"></button>
 	    </div>`;
-		todoList.insertAdjacentHTML('beforeend', todoItem)
-	})
+		todoList.insertAdjacentHTML('beforeend', todoItem);
+		updateTodoCount();
+	});
+}
+
+function updateTodoCount() {
+	document.getElementById('js-todo-count').innerHTML = getFilteredTodos(false).length;
 }
