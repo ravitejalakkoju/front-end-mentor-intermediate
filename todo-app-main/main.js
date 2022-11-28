@@ -3,6 +3,7 @@ loadTodos();
 const todoInput = document.getElementById('js-add-todo-input');
 
 todoInput.addEventListener('keypress', (event) => {
+	console.log(event.which);
 	if(event.key === 'Enter') {
 		addTodo(event.target.value);
 		todoInput.value = '';
