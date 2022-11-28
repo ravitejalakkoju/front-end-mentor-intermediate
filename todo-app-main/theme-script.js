@@ -1,7 +1,7 @@
 const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
 function loadThemeIcon(isLight = true) {
-  document.getElementById('js-theme-icon').setAttribute('src', isLight ? './images/icon-moon.svg' : './images/icon-sun.svg');
+  document.getElementById('js-theme-icon').setAttribute('src', isLight ? './images/icon-sun.svg' : './images/icon-moon.svg');
 }
 
 function loadSystemTheme() {
