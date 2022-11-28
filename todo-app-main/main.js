@@ -3,8 +3,7 @@ loadTodos();
 const todoInput = document.getElementById('js-add-todo-input');
 
 todoInput.addEventListener('keypress', (event) => {
-	console.log(event.which);
-	if(event.key === 'Enter' || event.which == 10) {
+	if(event.key === 'Enter') {
 		addTodo(event.target.value);
 		todoInput.value = '';
 	}
@@ -17,6 +16,7 @@ function filter() {
 }
 
 function addTodo(task) {
+	if(task == '' || task == null) return;
 	idCounter++;
 	getTodos().push({
 		id: idCounter,
@@ -26,7 +26,6 @@ function addTodo(task) {
 }
 
 function completeTodo(event) {
-	console.log(event.target.value);
 	getTodos().find(todo => todo.id == event.target.value).isCompleted = event.target.checked;
 	console.log(getTodos());
 	filter();

@@ -161,6 +161,10 @@ button > img {
 	pointer-events: none;
 	color: var(--clr-medium);
 }
+.btn-add-todo {
+	font-size: 1.2rem;
+	color: var(--clr-x-dull);
+}
 .todo-item > input[type="text"] {
 	border: none;
 	padding-top: 0.2rem;
@@ -177,7 +181,6 @@ button > img {
 }
 .todo-item > button > img {
 	height: 1rem;
-/*	filter: opacity(50%);*/
 }
 button.todo-theme {
 	background: transparent;
