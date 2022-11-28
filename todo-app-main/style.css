@@ -229,8 +229,8 @@ button.todo-theme {
 		display: none;
 	}
 }
-.todo-actions .active {
-	color: var(--bright-blue);
+.filters > button.active {
+	color: var(--bright-blue) !important;
 }
 .todo-list, .todo-actions, .page-content > .filters {
 	box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.05), 0 6px 50px 0 rgba(0, 0, 0, 0.05);
@@ -269,6 +269,9 @@ button.todo-theme {
 		border: none;
 		padding-top: 0.2rem;
 	}
+	.page-content > .filters > button:hover {
+		color: var(--clr-x-bright);
+	}
 }
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+.attribution { font-size: 11px; text-align: center; color: var(--clr-medium); }
+.attribution a { color: var(--clr-bright); }

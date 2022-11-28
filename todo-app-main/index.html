@@ -20,40 +20,25 @@
     </div>
     <div class="todo-item todo-input todo-alignment">
       <input type="checkbox">
-      <input type="text" placeholder="Create a new todo...">
+      <input type="text" placeholder="Create a new todo..." id="js-add-todo-input">
     </div>
   </header>
   <main class="page-content">
-    <div class="todo-list todo-alignment">
-      <div class="todo-item todo-item--completed">
-        <input type="checkbox">
-        <input type="text" value="Jog around park 3x">
-        <button><img src="./images/icon-cross.svg"></button>
-      </div>
-      <div class="todo-item">
-        <input type="checkbox">
-        <input type="text" value="10 minutes meditation">
-        <button><img src="./images/icon-cross.svg"></button>
-      </div>
-      <div class="todo-item">
-          <input type="checkbox">
-        <input type="text" value="Read for 1hour">
-        <button><img src="./images/icon-cross.svg"></button>
-      </div>  
+    <div class="todo-list todo-alignment" id="js-todo-list">
     </div>
     <div class="todo-item todo-actions todo-alignment">
-      <p>6 items left</p>
+      <p><span id="js-todo-count">6</span> items left</p>
       <div class="filters">
-        <button class="btn-filter-all">All</button>
-      <button class="btn-filter-active">Active</button>
-        <button class="btn-filter-completed">Completed</button>
+        <button class="active">All</button>
+        <button>Active</button>
+        <button >Completed</button>
       </div>
-      <button class="btn-clear">
+      <button class="btn-clear" onclick="clearCompletedTodos()">
         Clear Completed
       </button>
     </div>
     <div class="filters">
-      <button class="btn-filter-all">All</button>
+      <button class="btn-filter-all active">All</button>
       <button class="btn-filter-active">Active</button>
       <button class="btn-filter-completed">Completed</button>
     </div>
@@ -63,8 +48,16 @@
   </main>
   <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="https://github.com/ravitejalakkoju/front-end-mentor-intermediate/tree/main/todo-app-main" target="_blank">L N S S Ravi Teja</a>.
   </footer>
   <script type="text/javascript" src="./theme-script.js"></script>
+  <script type="text/javascript" src="./render-script.js"></script>
+  <script type="text/javascript" src="./main.js"></script>
 </body>
 </html>
+
+<!-- <div class="todo-item">
+        <input type="checkbox">
+        <input type="text" value="Read for 1hour">
+        <button><img src="./images/icon-cross.svg"></button>
+      </div>  -->
