@@ -4,8 +4,7 @@ const todoInput = document.getElementById('js-add-todo-input');
 
 todoInput.addEventListener('keypress', (event) => {
 	if(event.key === 'Enter') {
-		addTodo(event.target.value);
-		todoInput.value = '';
+		addTodo();
 	}
 })
 
@@ -15,14 +14,15 @@ function filter() {
 	activeFilterType == 'all' ? filterAllTodos() : activeFilterType == 'active' ? filterActiveTodos() : filterCompletedTodos();
 }
 
-function addTodo(task) {
-	if(task == '' || task == null) return;
+function addTodo() {
+	if(todoInput.value == '' || todoInput.value == null) return;
 	idCounter++;
 	getTodos().push({
 		id: idCounter,
-		task: task,
+		task: todoInput.value,
 		isCompleted: false
-	})
+	});
+	todoInput.value = '';
 }
 
 function completeTodo(event) {

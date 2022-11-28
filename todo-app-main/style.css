@@ -164,6 +164,12 @@ button > img {
 .btn-add-todo {
 	font-size: 1.2rem;
 	color: var(--clr-x-dull);
+	display: none;
+}
+@media only screen and (max-width:700px) {
+	.btn-add-todo {
+		display: block;
+	}
 }
 .todo-item > input[type="text"] {
 	border: none;
