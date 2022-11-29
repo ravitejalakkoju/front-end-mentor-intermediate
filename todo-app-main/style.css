@@ -144,6 +144,9 @@ button > img {
 	pointer-events: none;
 }
 @media only screen and (max-width:700px) {
+	.todo-item--empty > p{
+		font-size: 1rem;
+	}
 	.todo-item > input[type="checkbox"] {	
 		width: 1.75rem;
 		height: 1.5rem;
@@ -223,6 +226,7 @@ button.todo-theme {
 .todo-actions p {
 	font-size: 0.75rem;
 	margin: 0;
+	min-width: 15%;
 }
 .todo-actions button {
 	background: transparent;

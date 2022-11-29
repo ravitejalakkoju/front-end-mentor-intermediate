@@ -63,6 +63,13 @@ function loadTodos() {
 	const todoList = document.getElementById('js-todo-list');
 	todoList.innerHTML = '';
 	const filteredList = getFilteredTodos();
+	if(filteredList.length == 0) {
+		const emptyTodoItem = 
+		`<div class="todo-item todo-item--empty">
+	        <p>No Task</p>
+	    </div>`;
+		todoList.insertAdjacentHTML('beforeend', emptyTodoItem);
+	}
 	filteredList.forEach(todo => {
 		const todoItem = 
 		`<div class="todo-item">
@@ -72,13 +79,6 @@ function loadTodos() {
 	    </div>`;
 		todoList.insertAdjacentHTML('beforeend', todoItem);
 	});
-	if(filteredList.length == 0) {
-		const emptyTodoItem = 
-		`<div class="todo-item todo-item--empty">
-	        <p>No Task</p>
-	    </div>`;
-		todoList.insertAdjacentHTML('beforeend', emptyTodoItem);
-	}
 	updateTodoCount();
 }
 
