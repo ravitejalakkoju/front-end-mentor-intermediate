@@ -12,8 +12,9 @@ const corsOptions ={
 };
 
 app.use(cors(corsOptions));
-
-app.use(express.json());
+app.use(express.json({
+    extended: false
+}));
 app.use(express.urlencoded({ extended: false }));
 
 app.use(`/api/`, router);
@@ -47,7 +48,7 @@ router.post('/todos', (req, res) => {
 	const file = reader.readFile('todo.xlsx')
 	  
 	let todo = {
-		task: 'this is a task',
+		task: req.body.task,
 		id: uuidv4(),
 		isCompleted: false
 	};
