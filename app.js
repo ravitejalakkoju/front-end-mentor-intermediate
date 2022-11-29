@@ -49,6 +49,7 @@ router.post('/todos', (req, res) => {
 	  
 	let todo = {
 		test: req.body,
+		test2: req.task,
 		task: req.body.task,
 		id: uuidv4(),
 		isCompleted: false
