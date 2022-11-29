@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
 });
 
 router.get('/api/todos', (req, res) => {
-	const file = reader.readFile('todo.xlsx')
+	const file = reader.readFile('../todo.xlsx')
 	  
 	let data = []
 	  
@@ -36,7 +36,7 @@ router.get('/api/todos', (req, res) => {
 });
 
 router.post('/api/todos', (req, res) => {
-	const file = reader.readFile('todo.xlsx')
+	const file = reader.readFile('../todo.xlsx')
 	  
 	let todo = req.body;
 	todo.isCompleted = false;
