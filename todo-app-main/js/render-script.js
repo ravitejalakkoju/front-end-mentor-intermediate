@@ -8,7 +8,6 @@ Object.defineProperty(Array.prototype, "add", {
     {	
        	postTodo(args[0]).then((data) => {
        		this.push(data); 
-       		console.log(data);
 		   	filterList();
 		});
     }
