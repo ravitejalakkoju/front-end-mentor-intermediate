@@ -62,8 +62,8 @@ function loadTodos(isCompleted = null) {
 	        <button onclick="removeTodo(${todo.id})"><img src="./images/icon-cross.svg"></button>
 	    </div>`;
 		todoList.insertAdjacentHTML('beforeend', todoItem);
-		updateTodoCount();
 	});
+	updateTodoCount();
 }
 
 function updateTodoCount() {
