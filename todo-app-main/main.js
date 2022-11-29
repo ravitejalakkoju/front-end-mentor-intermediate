@@ -3,6 +3,7 @@ loadTodos();
 const todoInput = document.getElementById('js-add-todo-input');
 
 todoInput.addEventListener('keydown', (event) => {
+	alert(event.keyCode);
 	// key code of enter = 13
 	if(event.keyCode === 13) {
 		addTodo();
