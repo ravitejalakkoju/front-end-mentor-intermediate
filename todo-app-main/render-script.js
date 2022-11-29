@@ -36,7 +36,7 @@ Object.defineProperty(Array.prototype, "remove", {
     writable: true,
     value: function(...args) {
     	const indexes = args.length > 0 ? [this.findIndex(todo => todo.id == args)] : this.map((todo, index) => todo.isCompleted ? index : -1).filter(idx => idx >= 0);
-        indexes.forEach(idx => {
+        indexes.reverse().forEach(idx => {
         	this.splice(idx, 1);
         });
         filter(); 
