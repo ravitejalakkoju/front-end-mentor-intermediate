@@ -1,6 +1,4 @@
 const express = require("express");
-const serverless = require("serverless-http");
-
 const app = express();
 const reader = require('xlsx')
 const { v4: uuidv4 } = require('uuid')
@@ -10,13 +8,15 @@ const router = express.Router();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use(`/api/`, router);
+
 router.get("/", (req, res) => {
   res.json({
     hello: "hi!"
   });
 });
 
-router.get('/api/todos', (req, res) => {
+router.get('/todos', (req, res) => {
 	const file = reader.readFile('todo.xlsx')
 	  
 	let data = []
@@ -35,7 +35,7 @@ router.get('/api/todos', (req, res) => {
 	res.json(data);
 });
 
-router.post('/api/todos', (req, res) => {
+router.post('/todos', (req, res) => {
 	const file = reader.readFile('todo.xlsx')
 	  
 	let todo = req.body;
@@ -50,16 +50,6 @@ router.post('/api/todos', (req, res) => {
 	// reader.writeFile(file,'test.xlsx');
 });
 
-
-app.use(`/.netlify/functions/app`, router);
-
-module.exports = app;
-module.exports.handler = serverless(app);
-
-
-// app.use(express.static('public'));
-
-
-// //Listen for incoming requests
-// const PORT = process.env.PORT || 5000
-// app.listen(PORT, console.log(`Server started, listening PORT ${PORT}`))
+//Listen for incoming requests
+const PORT = process.env.PORT || 5000
+app.listen(PORT, console.log(`Server started, listening PORT ${PORT}`))
