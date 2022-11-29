@@ -24,6 +24,6 @@
   "bugs": {
     "url": "https://github.com/ravitejalakkoju/front-end-mentor-intermediate/issues"
   },
-  "proxy": "http://localhost:5000",
+  "proxy": "https://todos-app.herokuapp.com",
   "homepage": "https://github.com/ravitejalakkoju/front-end-mentor-intermediate/tree/main#readme"
 }

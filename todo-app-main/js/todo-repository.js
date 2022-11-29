@@ -1,5 +1,5 @@
 function getTodoList() {
-   fetch('/api/todos')
+   fetch('https://todos-app.herokuapp.com/api/todos')
       .then((response) => response.json())
       .then((data) => console.log(data));
 }
