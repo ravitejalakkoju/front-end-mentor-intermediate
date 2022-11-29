@@ -47,7 +47,7 @@ router.post('/todos', (req, res) => {
 	const file = reader.readFile('todo.xlsx')
 	  
 	let todo = {
-		task: req.body.task,
+		task: 'this is a task',
 		id: uuidv4(),
 		isCompleted: false
 	};
