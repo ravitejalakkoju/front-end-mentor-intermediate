@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "uuid": "^9.0.0",
+    "xlsx": "^0.18.5"
+  },
+  "name": "todo-app-main",
+  "description": "![Design preview for the Todo app coding challenge](./design/desktop-preview.jpg)",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app",
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ravitejalakkoju/front-end-mentor-intermediate.git#main"
+  },
+  "keywords": [
+    "todo"
+  ],
+  "author": "ravi teja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ravitejalakkoju/front-end-mentor-intermediate/issues"
+  },
+  "proxy": "http://localhost:5000",
+  "homepage": "https://github.com/ravitejalakkoju/front-end-mentor-intermediate/tree/main#readme"
+}
