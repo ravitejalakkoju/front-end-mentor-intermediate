@@ -1,34 +1,16 @@
-var todoList = 
-	[
-		{
-			id: 1,
-			task: 'Jog around park 3x',
-			isCompleted: true
-		},
-		{
-			id: 2,
-			task: '10 mins meditation',
-			isCompleted: false
-		},
-		{
-			id: 3,
-			task: 'Read for 1hr',
-			isCompleted: false
-		}
-	];
-var idCounter = 3;
+var todoList = [];
 
-Object.defineProperty(todoList, "push", {
+Object.defineProperty(Array.prototype, "add", {
     configurable: true,
     enumerable: false,
     writable: true, 
     value: function (...args)
-    {
-        let result = Array.prototype.push.apply(this, args); 
-
-       filterList(); 
-
-        return result; 
+    {	
+       	postTodo(args[0]).then((data) => {
+       		this.push(data); 
+       		console.log(data);
+		   	filterList();
+		});
     }
 });
 

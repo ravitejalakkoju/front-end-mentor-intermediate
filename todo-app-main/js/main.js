@@ -1,4 +1,9 @@
-filterList();
+getTodoList().then((data) => {
+   	todoList = data;
+   	filterList();
+});
+
+idCounter = 100;
 
 const todoInput = document.getElementById('js-add-todo-input');
 
@@ -15,12 +20,7 @@ function filterList() {
 
 function addTodo() {
 	if(todoInput.value == '' || todoInput.value == null) return;
-	idCounter++;
-	getTodos().push({
-		id: idCounter,
-		task: todoInput.value,
-		isCompleted: false
-	});
+	getTodos().add({task: todoInput.value});
 	todoInput.value = '';
 }
 
