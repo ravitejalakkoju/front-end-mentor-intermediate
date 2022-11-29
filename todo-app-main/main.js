@@ -1,4 +1,4 @@
-loadTodos();
+filterList();
 
 const todoInput = document.getElementById('js-add-todo-input');
 
@@ -7,12 +7,10 @@ todoInput.addEventListener('keydown', (event) => {
 	if(event.keyCode === 13) {
 		addTodo();
 	}
-})
+});
 
-let activeFilterType = 'all';
-
-function filter() {
-	activeFilterType == 'all' ? filterAllTodos() : activeFilterType == 'active' ? filterActiveTodos() : filterCompletedTodos();
+function filterList() {
+	selectedFilter == filter.all ? filterAllTodos() : selectedFilter == filter.active ? filterActiveTodos() : filterCompletedTodos();
 }
 
 function addTodo() {
@@ -28,7 +26,7 @@ function addTodo() {
 
 function completeTodo(event) {
 	getTodos().find(todo => todo.id == event.target.value).isCompleted = event.target.checked;
-	filter();
+	filterList();
 }
 
 function removeTodo(id) {
@@ -37,12 +35,12 @@ function removeTodo(id) {
 
 function clearCompletedTodos() {
 	getTodos().remove();
-	filter();
+	filterList();
 }
 
 function updateFilterType(event) {
-	activeFilterType = event.target.value;
-	filter();
+	selectedFilter = event.target.value;
+	filterList();
 }
 
 function clearFilters() {
@@ -64,7 +62,7 @@ function filterActiveTodos() {
 	document.querySelectorAll(".js-filter-active").forEach(el => {
 		el.classList.add('active');
 	});
-	loadTodos(false)
+	loadTodos();
 }
 
 function filterCompletedTodos() {
@@ -72,5 +70,5 @@ function filterCompletedTodos() {
 	document.querySelectorAll(".js-filter-completed").forEach(el => {
 		el.classList.add('active');
 	});
-	loadTodos(true);
+	loadTodos();
 }

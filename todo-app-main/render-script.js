@@ -26,7 +26,7 @@ Object.defineProperty(todoList, "push", {
     {
         let result = Array.prototype.push.apply(this, args); 
 
-       filter(); 
+       filterList(); 
 
         return result; 
     }
@@ -39,22 +39,31 @@ Object.defineProperty(Array.prototype, "remove", {
         indexes.reverse().forEach(idx => {
         	this.splice(idx, 1);
         });
-        filter(); 
+        filterList(); 
     }
 });
+
+const filter = {
+	all: 0,
+	active: 1,
+	completed: 2
+}
+
+let selectedFilter = filter.all;
 
 function getTodos() {
 	return todoList;
 }
 
-function getFilteredTodos(isCompleted) {
-	return getTodos().filter(isCompleted != null ? todo => todo.isCompleted == isCompleted : todo => true);
+function getFilteredTodos() {
+	return getTodos().filter(selectedFilter == filter.all ? todo => true : todo => todo.isCompleted == (selectedFilter == filter.completed));
 }
 
-function loadTodos(isCompleted = null) {
+function loadTodos() {
 	const todoList = document.getElementById('js-todo-list');
 	todoList.innerHTML = '';
-	getFilteredTodos(isCompleted).forEach(todo => {
+	const filteredList = getFilteredTodos();
+	filteredList.forEach(todo => {
 		const todoItem = 
 		`<div class="todo-item">
 	        <input type="checkbox" id="js-checkbox-${todo.id}" ${todo.isCompleted ? 'checked' : ''} value="${todo.id}" onclick="completeTodo(event)">
@@ -63,9 +72,16 @@ function loadTodos(isCompleted = null) {
 	    </div>`;
 		todoList.insertAdjacentHTML('beforeend', todoItem);
 	});
+	if(filteredList.length == 0) {
+		const emptyTodoItem = 
+		`<div class="todo-item todo-item--empty">
+	        <p>No Task</p>
+	    </div>`;
+		todoList.insertAdjacentHTML('beforeend', emptyTodoItem);
+	}
 	updateTodoCount();
 }
 
 function updateTodoCount() {
-	document.getElementById('js-todo-count').innerHTML = getFilteredTodos(false).length;
+	document.getElementById('js-todo-count').innerHTML = getTodos().filter(todo => !todo.isCompleted).length;
 }
