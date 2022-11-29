@@ -51,7 +51,7 @@ app.post('/api/todos', (req, res) => {
 });
 
 
-app.use(`/.netlify/functions/api`, router);
+app.use(`/.netlify/functions/app`, router);
 
 module.exports = app;
 module.exports.handler = serverless(app);
