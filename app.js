@@ -4,6 +4,7 @@ const reader = require('xlsx')
 const { v4: uuidv4 } = require('uuid')
 const router = express.Router();
 const cors=require("cors");
+const spread_sheet = require('spread_sheet');
 
 const corsOptions ={
    origin:'*', 
@@ -20,12 +21,6 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
-
-
-// app.use(express.json({
-//     extended: false
-// }));
-// app.use(express.urlencoded({ extended: false }));
 
 app.use(`/api/`, router);
 
@@ -55,20 +50,31 @@ router.get('/todos', (req, res) => {
 });
 
 router.post('/todos', (req, res) => {
-	const file = reader.readFile('todo.xlsx')
+	const fileName = 'todo.xlsx';
+	const workbook = reader.readFile(fileName);
 	  
-	let todo = {
-		task: req.body.task,
-		id: uuidv4(),
-		isCompleted: false
-	};
-	  
-	console.log(todo);
+	let todo =  {
+					id: uuidv4(),
+					task: req.body.task,
+					isCompleted: false
+				};
+
+	let todos = reader.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]]);
+	todos.push(todo);
+	
+	const workSheet = reader.utils.sheet_add_json(workbook.Sheets[workbook.SheetNames[0]], todos);
+
+	const s = reader.writeFile(workbook, fileName);
 
 	res.json(todo);
-	// const ws = reader.utils.json_to_sheet(student_data)
-	  
-	// reader.writeFile(file,'test.xlsx');
+});
+
+router.delete('/todos/:id', (req, res) => {
+	const fileName = 'todo.xlsx';
+	const workbook = reader.readFile(fileName);
+	const workSheet = workbook.Sheets[workbook.SheetNames[0]];
+
+	res.json(req.params.id);
 });
 
 //Listen for incoming requests
