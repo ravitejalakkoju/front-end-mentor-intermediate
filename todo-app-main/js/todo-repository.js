@@ -8,11 +8,11 @@ function postTodo(todo) {
    return fetch('https://todos-app.herokuapp.com/api/todos', {
       method: "POST",
       headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
             'Connection': 'keep-alive',
-            'Accept': '*/*',
+            'Accept': 'application/json',
         },
-      body: todo
+      body: JSON.stringify(todo)
    })
    .then((response) => response.json());
 }
