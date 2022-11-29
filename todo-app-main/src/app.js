@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
   });
 });
 
-app.get('/api/todos', (req, res) => {
+router.get('/api/todos', (req, res) => {
 	const file = reader.readFile('todo.xlsx')
 	  
 	let data = []
@@ -35,7 +35,7 @@ app.get('/api/todos', (req, res) => {
 	res.json(data);
 });
 
-app.post('/api/todos', (req, res) => {
+router.post('/api/todos', (req, res) => {
 	const file = reader.readFile('todo.xlsx')
 	  
 	let todo = req.body;
