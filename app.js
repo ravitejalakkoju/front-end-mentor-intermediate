@@ -12,10 +12,20 @@ const corsOptions ={
 };
 
 app.use(cors(corsOptions));
-app.use(express.json({
-    extended: false
+
+var bodyParser = require('body-parser');
+
+// configure the app to use bodyParser()
+app.use(bodyParser.urlencoded({
+    extended: true
 }));
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+
+// app.use(express.json({
+//     extended: false
+// }));
+// app.use(express.urlencoded({ extended: false }));
 
 app.use(`/api/`, router);
 
