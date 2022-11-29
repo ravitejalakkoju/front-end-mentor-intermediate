@@ -27,7 +27,6 @@ function addTodo() {
 
 function completeTodo(event) {
 	getTodos().find(todo => todo.id == event.target.value).isCompleted = event.target.checked;
-	console.log(getTodos());
 	filter();
 }
 
@@ -37,6 +36,11 @@ function removeTodo(id) {
 
 function clearCompletedTodos() {
 	getTodos().remove();
+	filter();
+}
+
+function updateFilterType(event) {
+	activeFilterType = event.target.value;
 	filter();
 }
 
@@ -59,7 +63,6 @@ function filterActiveTodos() {
 	document.querySelectorAll(".js-filter-active").forEach(el => {
 		el.classList.add('active');
 	});
-	activeFilterType = 'active';
 	loadTodos(false)
 }
 
@@ -68,6 +71,5 @@ function filterCompletedTodos() {
 	document.querySelectorAll(".js-filter-completed").forEach(el => {
 		el.classList.add('active');
 	});
-	activeFilterType = 'completed';
 	loadTodos(true);
 }

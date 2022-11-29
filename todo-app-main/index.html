@@ -20,7 +20,7 @@
       </div>
       <div class="todo-item todo-input todo-alignment">
         <input type="checkbox">
-        <input type="text" placeholder="Create a new todo..." id="js-add-todo-input" kn>
+        <input type="text" placeholder="Create a new todo..." id="js-add-todo-input">
         <button onclick="addTodo()" class="btn-add-todo"><i class="fa-solid fa-plus"></i></button>
       </div>
     </header>
@@ -30,18 +30,18 @@
       <div class="todo-item todo-actions todo-alignment">
         <p><span id="js-todo-count">6</span> items left</p>
         <div class="filters">
-          <button onclick="filterAllTodos()" class="js-filter-all">All</button>
-          <button onclick="filterActiveTodos()" class="js-filter-active">Active</button>
-          <button onclick="filterCompletedTodos()" class="js-filter-completed">Completed</button>
+          <button onclick="updateFilterType(event)" value="all" class="js-filter-all">All</button>
+          <button onclick="updateFilterType(event)" value="active" class="js-filter-active">Active</button>
+          <button onclick="updateFilterType(event)" value="completed" class="js-filter-completed">Completed</button>
         </div>
         <button class="btn-clear" onclick="clearCompletedTodos()">
           Clear Completed
         </button>
       </div>
       <div class="filters">
-        <button onclick="filterAllTodos()" class="js-filter-all">All</button>
-        <button onclick="filterActiveTodos()" class="js-filter-active">Active</button>
-        <button onclick="filterCompletedTodos()" class="js-filter-completed">Completed</button>
+        <button onclick="updateFilterType(event)" value="all" class="js-filter-all">All</button>
+        <button onclick="updateFilterType(event)" value="active" class="js-filter-active">Active</button>
+        <button onclick="updateFilterType(event)" value="completed" class="js-filter-completed">Completed</button>
       </div>
       <div class="todo-information todo-alignment">
         Drag and drop to reorder list
