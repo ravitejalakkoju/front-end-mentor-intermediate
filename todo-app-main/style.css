@@ -167,6 +167,61 @@ button > img {
 		display: block;
 	}
 }
+.todo-item--loader{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.loader {
+  position: relative;
+  height: 2rem;
+}
+.loader div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 0.3rem;
+  background: var(--check-background);
+  animation: loader 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.loader div:nth-child(1) {
+  left: -2.35rem;
+  animation-delay: 0;
+}
+.loader div:nth-child(2) {
+  left: -1.6rem;
+  animation-delay: -0.12s;
+}
+.loader div:nth-child(3) {
+  left: -0.85rem;
+  animation-delay: -0.24s;
+}
+.loader div:nth-child(4) {
+  left: -0.1rem;
+  animation-delay: -0.36s;
+}
+.loader div:nth-child(5) {
+  left: 0.65rem;
+  animation-delay: -0.24s;
+}
+.loader div:nth-child(6) {
+  left: 1.4rem;
+  animation-delay: -0.12s;
+}
+.loader div:nth-child(7) {
+  left: 2.15rem;
+  animation-delay: 0;
+}
+@keyframes loader {
+  0% {
+    top: 0.25rem;
+    height: 32px;
+  }
+  50%, 100% {
+    top: 12px;
+    height: 16px;
+  }
+}
 .todo-input > input[type="checkbox"] {
 	pointer-events: none;
 	color: var(--clr-medium);

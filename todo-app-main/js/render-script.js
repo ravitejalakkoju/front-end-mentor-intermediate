@@ -56,7 +56,7 @@ function loadTodos() {
 		`<div class="todo-item">
 	        <input type="checkbox" id="js-checkbox-${todo.id}" ${todo.isCompleted ? 'checked' : ''} value="${todo.id}" onclick="completeTodo(event)">
 	        <input type="text" value="${todo.task}">
-	        <button onclick="removeTodo(${todo.id})"><img src="./images/icon-cross.svg"></button>
+	        <button onclick="removeTodo('${todo.id}')"><img src="./images/icon-cross.svg"></button>
 	    </div>`;
 		todoList.insertAdjacentHTML('beforeend', todoItem);
 	});
