@@ -1,4 +1,5 @@
-var todoList = [];
+const todoList = JSON.parse(localStorage.getItem('todos'));
+var idCounter = localStorage.getItem('todoIdCounter') || 4;
 
 Object.defineProperty(Array.prototype, "add", {
     configurable: true,
@@ -6,10 +7,9 @@ Object.defineProperty(Array.prototype, "add", {
     writable: true, 
     value: function (...args)
     {	
-       	postTodo(args[0]).then((data) => {
-       		this.push(data); 
-		   	filterList();
-		});
+		this.push({id: idCounter++, task: args[0].task, isCompleted: false});
+		localStorage.setItem('todos', JSON.stringify(this));
+		filterList();
     }
 });
 
@@ -20,6 +20,7 @@ Object.defineProperty(Array.prototype, "remove", {
         indexes.reverse().forEach(idx => {
         	this.splice(idx, 1);
         });
+		localStorage.setItem('todos', JSON.stringify(this));
         filterList(); 
     }
 });
@@ -34,6 +35,13 @@ let selectedFilter = filter.all;
 
 function getTodos() {
 	return todoList;
+}
+
+function swapTodos(startIndex, dropIndex) {
+	var droppedItem = todoList[dropIndex];
+	todoList[dropIndex] = todoList[startIndex];
+	todoList[startIndex] = droppedItem;
+	localStorage.setItem('todos', JSON.stringify(todoList));
 }
 
 function getFilteredTodos() {
@@ -51,15 +59,21 @@ function loadTodos() {
 	    </div>`;
 		todoList.insertAdjacentHTML('beforeend', emptyTodoItem);
 	}
-	filteredList.forEach(todo => {
-		const todoItem = 
-		`<div class="todo-item">
+	filteredList.forEach((todo,index) => {
+		const todoItem = document.createElement('li');
+	    todoItem.setAttribute('data-index', index);
+	    todoItem.innerHTML = 
+	    `<div class="todo-item draggable" draggable="true" data-index="${index}">
 	        <input type="checkbox" id="js-checkbox-${todo.id}" ${todo.isCompleted ? 'checked' : ''} value="${todo.id}" onclick="completeTodo(event)">
 	        <input type="text" value="${todo.task}">
 	        <button onclick="removeTodo('${todo.id}')"><img src="./images/icon-cross.svg"></button>
 	    </div>`;
-		todoList.insertAdjacentHTML('beforeend', todoItem);
+
+	    listItems.push(todoItem);
+
+	    todoList.appendChild(todoItem);
 	});
+  	addEventListeners();
 	updateTodoCount();
 }
 

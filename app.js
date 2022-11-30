@@ -50,9 +50,27 @@ router.get('/todos', (req, res) => {
 });
 
 router.post('/todos', (req, res) => {
+	if(!req.body.task) return res.json({});
+
 	const fileName = 'todo.xlsx';
 	const workbook = reader.readFile(fileName);
-	  
+	const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+	let todo =  createTodo(req.body.task);
+
+	let todos = reader.utils.sheet_to_json(worksheet);
+	todos.push(todo);
+	
+	reader.utils.sheet_add_json(worksheet, todos);
+
+	reader.writeFile(workbook, fileName);
+
+	res.json(todo);
+});
+
+router.delete('/todos/completed', (req, res) => {
+	const fileName = 'todo.xlsx';
+	const workbook = reader.readFile(fileName);
+	  console.log(req.body.task);
 	let todo =  {
 					id: uuidv4(),
 					task: req.body.task,
@@ -60,7 +78,7 @@ router.post('/todos', (req, res) => {
 				};
 
 	let todos = reader.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]]);
-	todos.push(todo);
+	todos = todos.filter(todo => !todo.isCompleted);
 	
 	const workSheet = reader.utils.sheet_add_json(workbook.Sheets[workbook.SheetNames[0]], todos);
 
@@ -76,6 +94,14 @@ router.delete('/todos/:id', (req, res) => {
 
 	res.json(req.params.id);
 });
+
+function createTodo(task) {
+	return {
+		id: uuidv4(),
+		task: task,
+		isCompleted: false
+	};
+}
 
 //Listen for incoming requests
 const PORT = process.env.PORT || 5000

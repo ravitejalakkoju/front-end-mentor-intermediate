@@ -1,9 +1,16 @@
-getTodoList().then((data) => {
-   	todoList = data;
-   	filterList();
-});
+setTimeout(renderTodos, 1500);
 
-idCounter = 100;
+function renderTodos() {
+	if(!todoList) {
+		getDefaultTodoList().then((data) => {
+	   		todoList = data;
+	   		filterList();
+		});
+	}
+	else {
+		filterList();
+	}
+}
 
 const todoInput = document.getElementById('js-add-todo-input');
 

@@ -81,7 +81,6 @@ button > img {
 }
 .todo-alignment {
 	display: flex;
-	align-items: center;
 	max-width: 724px;
 	margin: 0 auto;
 }
@@ -264,6 +263,8 @@ button.todo-theme {
 .todo-list {
 	display: flex;
 	flex-direction: column;
+	list-style: none;
+	padding: 0;
 }
 .todo-list > .todo-item {
 	display: flex;
@@ -347,6 +348,14 @@ button.todo-theme {
 	.page-content > .filters > button:hover {
 		color: var(--clr-x-bright);
 	}
+}
+.draggable {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  flex: 1;
 }
 .attribution { font-size: 11px; text-align: center; color: var(--clr-medium); }
 .attribution a { color: var(--clr-bright); }
