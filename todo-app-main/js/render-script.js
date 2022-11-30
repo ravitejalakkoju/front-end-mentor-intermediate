@@ -37,11 +37,15 @@ function getTodos() {
 	return todoList;
 }
 
+function saveTodos() {
+	localStorage.setItem('todos', JSON.stringify(todoList));
+}
+
 function swapTodos(startIndex, dropIndex) {
 	var droppedItem = todoList[dropIndex];
 	todoList[dropIndex] = todoList[startIndex];
 	todoList[startIndex] = droppedItem;
-	localStorage.setItem('todos', JSON.stringify(todoList));
+	saveTodos();
 }
 
 function getFilteredTodos() {

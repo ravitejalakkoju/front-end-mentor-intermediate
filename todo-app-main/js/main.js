@@ -33,6 +33,7 @@ function addTodo() {
 
 function completeTodo(event) {
 	getTodos().find(todo => todo.id == event.target.value).isCompleted = event.target.checked;
+	saveTodos();
 	filterList();
 }
 
