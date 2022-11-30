@@ -1,4 +1,4 @@
-const todoList = JSON.parse(localStorage.getItem('todos'));
+var todoList = JSON.parse(localStorage.getItem('todos'));
 var idCounter = localStorage.getItem('todoIdCounter') || 4;
 
 Object.defineProperty(Array.prototype, "add", {

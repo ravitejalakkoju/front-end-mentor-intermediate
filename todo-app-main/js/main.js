@@ -1,6 +1,7 @@
 setTimeout(renderTodos, 1500);
 
 function renderTodos() {
+	console.log(todoList);
 	if(!todoList) {
 		getDefaultTodoList().then((data) => {
 	   		todoList = data;
