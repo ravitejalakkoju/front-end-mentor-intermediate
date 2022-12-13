@@ -81,7 +81,7 @@
             .bindPopup(`IP Address is located in ${data.location.city} at (${data.location.lat}, ${data.location.lng})`).openPopup();
           document.getElementById('ip-value').innerHTML = data.ip;
           document.getElementById('loc-value').innerHTML = data.location.region + ', ' + data.location.country + ' ' + data.location.postalCode;
-          document.getElementById('utc-value').innerHTML = data.location.timezone;
+          document.getElementById('utc-value').innerHTML = 'UTC ' + data.location.timezone;
           document.getElementById('isp-value').innerHTML = data.isp;
         });
       }
