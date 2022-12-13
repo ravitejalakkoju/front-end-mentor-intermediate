@@ -1,18 +1,168 @@
-/* Error: unmatched "}".
- *     ,
- * 133 | }
- *     | ^
- *     '
- *   _header.scss 133:1  @import
- *   style.scss 3:9      root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: unmatched "}".\a     \2577 \a 133 \2502  }\d\a     \2502  ^\a     \2575 \a   _header.scss 133:1  @import\a   style.scss 3:9      root stylesheet';
+/*	## Colors*/
+* {
+  font-family: Rubik;
 }
+
+html {
+  font-size: 18px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+}
+
+.header {
+  min-height: 25vh;
+  width: 100%;
+  background: url("../images/pattern-bg.png");
+  background-size: cover;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+@media (max-width: 600px) {
+  .header {
+    min-height: 32vh;
+  }
+}
+.header h1 {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 2rem;
+}
+.header .input {
+  border-radius: 0.75rem;
+  background-color: white;
+  width: 80%;
+  max-width: 524px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.header .input .ip-address {
+  background: transparent;
+  border: none;
+  color: hsl(0deg, 0%, 59%);
+  padding: 0.5rem;
+  min-width: 70%;
+  margin-left: 0.75rem;
+  font-size: 0.9rem;
+}
+.header .input .ip-address:focus {
+  outline: none;
+  color: hsl(0deg, 0%, 17%);
+  font-weight: 400;
+}
+.header .input .icon-container {
+  background-color: hsl(0deg, 0%, 17%);
+  padding: 1rem 1.25rem;
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+  border: 0;
+}
+.header .input .icon-container:hover {
+  cursor: pointer;
+  background-blend-mode: overlay;
+  background-color: #000;
+}
+.header .output {
+  background: white;
+  padding: 0 1rem;
+  width: 80%;
+  margin-top: 1.5rem;
+  margin-bottom: -250px;
+  max-width: 924px;
+  border-radius: 0.75rem;
+  z-index: 9999;
+}
+@media (max-width: 600px) {
+  .header .output {
+    padding: 0;
+    margin-bottom: -140px;
+  }
+}
+.header .output .list {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+@media (max-width: 600px) {
+  .header .output .list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+.header .output .list .list__item {
+  position: relative;
+  padding: 1rem;
+}
+.header .output .list .list__item:first-child {
+  border: none;
+}
+.header .output .list .list__item:not(:first-child):after {
+  content: "";
+  width: 0;
+  height: 70%;
+  position: absolute;
+  border: 1px solid lightgray;
+  top: 20%;
+  left: 0;
+}
+@media (max-width: 600px) {
+  .header .output .list .list__item {
+    padding: 0.5rem;
+  }
+  .header .output .list .list__item:not(:first-child):after {
+    display: none;
+  }
+}
+.header .output .list .list__item .key, .header .output .list .list__item .value {
+  margin: 0;
+}
+.header .output .list .list__item .key {
+  text-transform: uppercase;
+  color: hsl(0deg, 0%, 59%);
+  font-size: 0.5rem;
+  letter-spacing: 0.1rem;
+}
+@media (max-width: 600px) {
+  .header .output .list .list__item .key {
+    text-align: center;
+  }
+}
+.header .output .list .list__item .value {
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+@media (max-width: 600px) {
+  .header .output .list .list__item .value {
+    text-align: center;
+  }
+}
+
+#map {
+  height: 180px;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228deg, 45%, 44%);
+}
+
+/*# sourceMappingURL=style.css.map */
