@@ -63,9 +63,11 @@
 		margin-bottom: -250px;
 		max-width: 924px;
 		border-radius: 0.75rem;
+		z-index: 9999;
 
 		@media (max-width: 600px) {
 			padding: 0;
+			margin-bottom: -140px;
 		}
 
 		.list {
@@ -120,6 +122,10 @@
 				.value {
 					margin-top: 0.5rem;
 					font-weight: 500;
+
+					@media (max-width: 600px) {}
+						text-align: center;
+					}
 				}
 			}
 		}
