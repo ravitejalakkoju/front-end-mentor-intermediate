@@ -27,7 +27,7 @@ body {
 }
 @media (max-width: 600px) {
   .header {
-    min-height: 32vh;
+    min-height: 37vh;
   }
 }
 .header h1 {
@@ -99,9 +99,11 @@ body {
 @media (max-width: 600px) {
   .header .output .list {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     flex-direction: column;
+    max-height: 6rem;
+    overflow: scroll;
   }
 }
 .header .output .list .list__item {
