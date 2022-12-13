@@ -2,9 +2,8 @@
 	min-height: 25vh;
 	width: 100%;
 	background: url('../images/pattern-bg.png');
-	background-size: contain;
+	background-size: cover;
 	@include display-flex(column, flex-start);
-	position: relative;
 
 	@media (max-width: 600px) {
 		min-height: 32vh;
@@ -58,15 +57,14 @@
 
 	.output {
 		background: white;
-		position: absolute;
-		bottom: -25%;
 		padding: 0 1rem;
 		width: 80%;
+		margin-top: 1.5rem;
+		margin-bottom: -250px;
 		max-width: 924px;
 		border-radius: 0.75rem;
 
 		@media (max-width: 600px) {
-			bottom: -45%;
 			padding: 0;
 		}
 
@@ -127,3 +125,5 @@
 		}
 	}
 }
+
+#map { height: 180px; }

@@ -19,12 +19,11 @@ body {
   min-height: 25vh;
   width: 100%;
   background: url("../images/pattern-bg.png");
-  background-size: contain;
+  background-size: cover;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  position: relative;
 }
 @media (max-width: 600px) {
   .header {
@@ -75,16 +74,15 @@ body {
 }
 .header .output {
   background: white;
-  position: absolute;
-  bottom: -25%;
   padding: 0 1rem;
   width: 80%;
+  margin-top: 1.5rem;
+  margin-bottom: -250px;
   max-width: 924px;
   border-radius: 0.75rem;
 }
 @media (max-width: 600px) {
   .header .output {
-    bottom: -45%;
     padding: 0;
   }
 }
@@ -145,6 +143,10 @@ body {
 .header .output .list .list__item .value {
   margin-top: 0.5rem;
   font-weight: 500;
+}
+
+#map {
+  height: 180px;
 }
 
 .attribution {
