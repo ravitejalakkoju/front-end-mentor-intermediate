@@ -1,0 +1,20 @@
+/*	## Colors*/
+$very-dark-gray: hsl(0, 0%, 17%);
+$dark-gray: hsl(0, 0%, 59%);
+
+* {
+	font-family: Rubik;
+}
+html {
+	font-size: 18px;
+}
+@mixin display-flex($direction, $position: center) {
+	display: flex;
+	justify-content: $position;
+	align-items: center;
+	flex-direction: $direction;
+}
+body {
+	@include display-flex(column);
+	margin: 0;
+}

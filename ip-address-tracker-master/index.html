@@ -5,30 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" type="text/css" href="./scss/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,500,700">
   <title>Frontend Mentor | IP Address Tracker</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
-
-  IP Address Tracker
-
-  Search for any IP address or domain
-
-  IP Address
-  Location
-  Timezone
-    UTC <!-- add offset value dynamically using the API -->
-  ISP
-  
+  <header class="header">
+    <h1>IP Address Tracker</h1>
+    <div class="input">
+      <input type="text" placeholder="Search for any IP address or domain" class="ip-address" id="js-ip-address" name="ip-address">
+      <button class="icon-container" id="js-icon-submit">
+        <img src="./images/icon-arrow.svg" alt="icon-arrow" class="icon-arrow">
+      </button>
+    </div>
+    <div class="output">
+      <ul class="list">
+        <li class="list__item">
+          <h6 class="key">IP Address</h6>
+          <p class="value">192.212.143.56</p>
+        </li>
+        <li class="list__item">
+          <h6 class="key">Location</h6>
+          <p class="value">Brooklyn, Ny 10001</p>
+        </li>
+        <li class="list__item">
+          <h6 class="key">Timezone</h6>
+          <p class="value">UTC --5:00</p>
+          <!--  add offset value dynamically using the API -->
+        </li>
+        <li class="list__item">
+          <h6 class="key">ISP</h6>
+          <p class="value">SPACEX STARLINK</p>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <main class="map" id="googleMap" style="width:100%;height:400px; z-index: -1;">
+    
+  </main>
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
+  <script>
+    function myMap() {
+    var mapProp= {
+      center:new google.maps.LatLng(51.508742,-0.120850),
+      zoom:5,
+    };
+    var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    }
+  </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
 </body>
 </html>
