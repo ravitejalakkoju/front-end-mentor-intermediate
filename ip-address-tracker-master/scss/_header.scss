@@ -2,9 +2,13 @@
 	min-height: 25vh;
 	width: 100%;
 	background: url('../images/pattern-bg.png');
-	background-size: cover;
+	background-size: contain;
 	@include display-flex(column, flex-start);
 	position: relative;
+
+	@media (max-width: 600px) {
+		min-height: 32vh;
+	}
 
 	h1 {
 		color: white;
@@ -16,7 +20,7 @@
 	.input {
 		border-radius: 0.75rem;
 		background-color: white;
-		width: 100%;
+		width: 80%;
 		max-width: 524px;
 
 		@include display-flex(row, space-between);
@@ -57,14 +61,23 @@
 		position: absolute;
 		bottom: -25%;
 		padding: 0 1rem;
-		width: 100%;
+		width: 80%;
 		max-width: 924px;
-
 		border-radius: 0.75rem;
+
+		@media (max-width: 600px) {
+			bottom: -45%;
+			padding: 0;
+		}
+
 		.list {
 			padding: 0;
 			list-style: none;
 			@include display-flex(row, space-between);
+
+			@media (max-width: 600px) {
+				@include display-flex(column, center);
+			}
 
 			.list__item {
 				position: relative;
@@ -84,6 +97,13 @@
 				  left: 0;
 				}
 
+				@media (max-width: 600px) {
+					padding: 0.5rem;
+					&:not(:first-child):after {
+						display: none;
+					}
+				}
+
 				.key, .value {
 					margin: 0;
 				}
@@ -93,6 +113,10 @@
 					color: $dark-gray;
 					font-size: 0.5rem;
 					letter-spacing: 0.1rem;
+
+					@media (max-width: 600px) {
+						text-align: center;
+					}
 				}
 
 				.value {

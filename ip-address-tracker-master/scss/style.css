@@ -19,12 +19,17 @@ body {
   min-height: 25vh;
   width: 100%;
   background: url("../images/pattern-bg.png");
-  background-size: cover;
+  background-size: contain;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   position: relative;
+}
+@media (max-width: 600px) {
+  .header {
+    min-height: 32vh;
+  }
 }
 .header h1 {
   color: white;
@@ -35,7 +40,7 @@ body {
 .header .input {
   border-radius: 0.75rem;
   background-color: white;
-  width: 100%;
+  width: 80%;
   max-width: 524px;
   display: flex;
   justify-content: space-between;
@@ -73,9 +78,15 @@ body {
   position: absolute;
   bottom: -25%;
   padding: 0 1rem;
-  width: 100%;
+  width: 80%;
   max-width: 924px;
   border-radius: 0.75rem;
+}
+@media (max-width: 600px) {
+  .header .output {
+    bottom: -45%;
+    padding: 0;
+  }
 }
 .header .output .list {
   padding: 0;
@@ -84,6 +95,14 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+}
+@media (max-width: 600px) {
+  .header .output .list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 .header .output .list .list__item {
   position: relative;
@@ -101,6 +120,14 @@ body {
   top: 20%;
   left: 0;
 }
+@media (max-width: 600px) {
+  .header .output .list .list__item {
+    padding: 0.5rem;
+  }
+  .header .output .list .list__item:not(:first-child):after {
+    display: none;
+  }
+}
 .header .output .list .list__item .key, .header .output .list .list__item .value {
   margin: 0;
 }
@@ -109,6 +136,11 @@ body {
   color: hsl(0deg, 0%, 59%);
   font-size: 0.5rem;
   letter-spacing: 0.1rem;
+}
+@media (max-width: 600px) {
+  .header .output .list .list__item .key {
+    text-align: center;
+  }
 }
 .header .output .list .list__item .value {
   margin-top: 0.5rem;
