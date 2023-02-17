@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dictionary App</title>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+	<header class="d-flex justify-content-between">
+	  <img src="./images/logo.svg" alt="logo" class="logo">
+	  <ul class="header-list d-flex">
+	    <li class="header-list-item">
+	      <button class="btn-font-select cursor-pointer d-flex" id="js-select-font">
+	        <span id="js-current-font"></span>
+	        <img src="./images/dropdown.svg" alt="dropdown" class="dropdown-icon" id="js-dropdown"/>
+	      </button>
+	      <ul class="font-list cursor-pointer" id="js-font-family-select">
+	        <li class="font-list-item cursor-pointer" font="serif">
+	          Serif
+	        </li>
+	        <li class="font-list-item cursor-pointer" font="monospace">
+	          Monospace
+	        </li>
+	        <li class="font-list-item cursor-pointer" font="sans-serif">
+	          Sans-serif
+	        </li>
+	        <li class="font-list-item cursor-pointer" font="cursive">
+	          Cursive
+	        </li>
+	        <li class="font-list-item cursor-pointer" font="courier new">
+	          Courier New
+	        </li>
+	      </ul>
+	    </li>
+	    <li class="header-list-item">
+	      <div class="vl-1"></div>
+	    </li>
+	    <li class="header-list-item d-flex">
+	      <input type="checkbox" class="checkbox-theme cursor-pointer" id="js-theme-checkbox"/>
+	      <div class="toggle-theme cursor-pointer" id="js-theme-toggle"></div>
+	      <label class="toggle-theme-label" id="js-theme-icon-label"></label>
+	    </li>
+	  </ul>
+	</header>
+	<main>
+	  <section class="search-box">
+	    <input type="text" class="search-input" id="js-search-input" placeholder="Enter keyword ..."/>
+	    <button class="btn-search-icon cursor-pointer" id="btn-search">
+	      <img class="search-icon" src="./images/search.svg" alt="search-icon"/>
+	    </button>
+	  </section>
+	  <section class="result-box" id="result">
+	  </section>
+	</main>
+	<footer class="source">
+	  <span class="text">Source</span>
+	  <a href="https://dictionaryapi.dev/" class="link" id="src-url" target="_blank">
+	    <span id="src-url-view">https://dictionaryapi.dev/</span>
+	    <img src="./images/new-window.svg" alt="new-window-icon" aria-hidden="true">
+	    </a>
+	</footer>
+	<script type="text/javascript" src="./script.js"></script>
+	<script src="https://kit.fontawesome.com/862bd05429.js" crossorigin="anonymous"></script>
+</body>
+</html>
